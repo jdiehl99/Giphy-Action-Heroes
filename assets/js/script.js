@@ -2,7 +2,7 @@
 jQuery(($) => { // document on ready
 
     // array holding initial values for buttons
-    var topics = ["Thor", "Iron man", "Hawkeye", "Captain America", "Superman", "Wonder Woman"];
+    var topics = ["Thor", "Iron man", "Chuck Norris", "Hawkeye", "Captain America", "Rambo", "Superman", "Wonder Woman"];
 
 
     // make buttons from array data
