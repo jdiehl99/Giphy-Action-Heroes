@@ -10,7 +10,7 @@ jQuery(($) => { // document on ready
         $("#buttonList").empty();
         $.each(topics, function (index, value) {
             var b = $("<button>")
-            b.addClass("hero")
+            b.addClass("hero btn btn-secondary")
             b.attr("data-name", topics[index])
             b.text(topics[index]),
                 $("#buttonList").append(b);
@@ -43,6 +43,9 @@ jQuery(($) => { // document on ready
                 // create variable to hold data for still image
                 var imageStill = data[i].images.original_still.url;
 
+                // create div to hold image and rating
+                $("<div/>").append("#showGifs");
+
                 // create dynamic image element
                 var heroImage = $("<img>");
 
@@ -54,8 +57,19 @@ jQuery(($) => { // document on ready
                 heroImage.attr("data-still", imageStill);
                 heroImage.attr("data-animate", imageAnimate)
 
-                // append to div with id showGifs
+                
+                // append image to div with id showGifs
                 $("#showGifs").append(heroImage);
+
+                var imgRating = data[i].rating;
+                console.log("rating",imgRating);
+
+                var imgCaption = $("<p>");
+                imgCaption.text("Rating: "+ imgRating);
+
+                // append rating 
+                $("#showGifs").append(imgCaption);
+
             }
         });
     } // end function to return results
