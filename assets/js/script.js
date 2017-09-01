@@ -57,15 +57,15 @@ jQuery(($) => { // document on ready
                 heroImage.attr("data-still", imageStill);
                 heroImage.attr("data-animate", imageAnimate)
 
-                
+
                 // append image to div with id showGifs
                 $("#showGifs").append(heroImage);
 
                 var imgRating = data[i].rating;
-                console.log("rating",imgRating);
+                console.log("rating", imgRating);
 
                 var imgCaption = $("<p>");
-                imgCaption.text("Rating: "+ imgRating);
+                imgCaption.text("Rating: " + imgRating);
 
                 // append rating 
                 $("#showGifs").append(imgCaption);
@@ -98,6 +98,20 @@ jQuery(($) => { // document on ready
             $(this).attr("src", imageStill)
         }
     }
+
+    // add handler to add new hero to buttons
+    $("#addhero").on("click", function () {
+        event.preventDefault();
+
+        var newHero = $("#hero-input").val().trim();
+
+        // add new hero to button array
+        topics.push(newHero);
+        // regenerate buttons with new array data
+        makeButtons();
+        $("#hero-input").val("");
+
+    });
 
     // add click handler to all buttons with class hero and display gifs in div with ID showGifs
     $(document).on("click", ".hero", getTheGifs);
